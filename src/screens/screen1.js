@@ -1,16 +1,24 @@
 import React from 'react';
-import {View, StyleSheet , Text} from 'react-native';
+import {View, StyleSheet, Text, Button} from 'react-native';
+import ScreenNames from '../../route/ScreenNames';
+import {useNavigation} from '@react-navigation/native';
 
-const Screen1 = () => {
-    return (
-        <View>
-            <Text>
-                {'Screen 1'}
-            </Text>
-        </View>
-    );
-}
+const Screen1 = props => {
+  const navigation = useNavigation();
 
-const styles = StyleSheet.create({})
+  return (
+    <View>
+      <Text>{'Screen 1'}</Text>
+      <Button
+        title="screen3"
+        onPress={() =>
+          props.navigation.navigate(ScreenNames.screen3, {batata: 'abc'})
+        }
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({});
 
 export default Screen1;
