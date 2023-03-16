@@ -10,7 +10,7 @@ const MainNavigator = () => {
   const Stack = createNativeStackNavigator();
 
   return (
-    <NavigationContainer> 
+    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name={ScreenNames.screen1} component={Screen1} />
         <Stack.Screen name={ScreenNames.screen2} component={Screen2} />
