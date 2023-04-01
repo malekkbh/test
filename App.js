@@ -4,22 +4,24 @@ import Card from './src/components/card';
 
 const App = () => {
   const data = [
-    'btata',
-    'roz',
-    'batngan',
-    'shawerma',
-    'stick',
-    'mansaf',
-    'pizza',
-    'frika',
-    'water',
-    'cola',
-    'tamer',
-    'ktaeyef',
+    {name: 'btata', price: 10},
+    {name: 'roz', price: 7},
+    {name: 'batngan', price: 33},
+    {name: 'shawerma', price: 45},
+    {name: 'stick', price: 120},
+    {name: 'mansaf', price: 300},
+    {name: 'pizza', price: 60},
+    {name: 'frika', price: 20},
+    {name: 'water', price: 5},
+    {name: 'cola', price: 7},
+    {name: 'tamer', price: 2},
+    {name: 'ktaeyef', price: 7},
   ];
 
   const renderCards = () => {
-    const cards = data.map(name => <Card title={name} />);
+    const cards = data.map(product => {
+      return <Card title={product.name} price={product.price} />;
+    });
     return cards;
   };
 
