@@ -1,45 +1,18 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import Card from './src/components/card';
+import { StyleSheet, View } from 'react-native';
+import MainNavigation from './route/nav';
 
 const App = () => {
-  const data = [
-    {name: 'btata', price: 10},
-    {name: 'roz', price: 7},
-    {name: 'batngan', price: 33},
-    {name: 'shawerma', price: 45},
-    {name: 'stick', price: 120},
-    {name: 'mansaf', price: 300},
-    {name: 'pizza', price: 60},
-    {name: 'frika', price: 20},
-    {name: 'water', price: 5},
-    {name: 'cola', price: 7},
-    {name: 'tamer', price: 2},
-    {name: 'ktaeyef', price: 7},
-  ];
-
-  const renderCards = () => {
-    const cards = data.map(product => {
-      return <Card title={product.name} price={product.price} />;
-    });
-    return cards;
-  };
-
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {renderCards()}
-      </ScrollView>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <MainNavigation />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   card: {
     // borderWidth: 4,
