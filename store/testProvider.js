@@ -1,17 +1,20 @@
 import React, {useState} from 'react';
-import TestContext from './testContext';
-
 const TestProvider = props => {
-  const [total, setTotal] = useState(0);
+  
+  //1
+  const[cart , setCart] = useState([]); 
+
+  //2
+  const contextValue = {
+    //3
+    cart , 
+    setCart
+  }
 
   return (
     <TestContext.Provider
-      value={{
-        //   total: total,
-        total,
-        setTotal,
-        //   setTotal: (value ) > setTotal(value),
-      }}>
+      value={contextValue}
+      >
       {props.children}
     </TestContext.Provider>
   );

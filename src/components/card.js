@@ -1,15 +1,25 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import ScreenNames from '../../route/ScreenNames';
 
 const Card = props => {
+  const navigation = useNavigation();
+
+  const navigateToScreen = () => {
+    navigation.navigate(ScreenNames.screen2, {title: props.title});
+  };
+
   return (
-    <View style={styles.card}>
-      <View style={styles.nameContainer}>
-        <Text style={styles.text}>{props.title}</Text>
-        <Text style={styles.text2}>!!!</Text>
+    <TouchableOpacity onPress={navigateToScreen}>
+      <View style={styles.card}>
+        <View style={styles.nameContainer}>
+          <Text style={styles.text}>{props.title}</Text>
+          <Text style={styles.text2}>!!!</Text>
+        </View>
+        <Text style={styles.text}>{`${props.price || 0}₪`}</Text>
       </View>
-      <Text style={styles.text}>{`${props.price || 0}₪`}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

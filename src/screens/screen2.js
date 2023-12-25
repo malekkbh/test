@@ -1,15 +1,14 @@
-import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-const Screen2 = props => {
-  const data = props.route.params.batata;
+const screen2 = () => {
   return (
     <View>
-      <Text>{data}</Text>
+      <Text>screen2</Text>
     </View>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({});
+export default screen2
 
-export default Screen2;
+const styles = StyleSheet.create({})

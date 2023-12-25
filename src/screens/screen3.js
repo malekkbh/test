@@ -1,23 +1,14 @@
-import React, {useContext} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
-import TestContext from '../../store/testContext';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-const Screen3 = props => {
-  const data = props.route.params.batata;
-
-  const {total, setTotal} = useContext(TestContext);
-
+const Screen3 = () => {
   return (
     <View>
-      <Text style={styles.txet}>{'page 3 tabs: ' + total}</Text>
+      <Text>Screen3</Text>
     </View>
-  );
-};
+  )
+}
 
-const styles = StyleSheet.create({
-  txet: {
-    fontSize: 30,
-  },
-});
+export default Screen3
 
-export default Screen3;
+const styles = StyleSheet.create({})
