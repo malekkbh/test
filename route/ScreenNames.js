@@ -1,8 +1,7 @@
 const ScreenNames = {
-  screen1: 'screen1',
-  screen2: 'screen2',
-  screen3: 'screen3',
-  screen4: 'screen4',
+  Home: 'Home',
+  screen2: 'Screen2',
+  screen3: 'Screen3',
 };
 
 export default ScreenNames;

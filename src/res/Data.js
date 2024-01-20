@@ -2,7 +2,8 @@ export const Cars = [
   {
     brand: 'VW',
     year: 2023,
-    km: 0,
+    km: 300,
+    type:['private', 'suv']
   },
   {
     brand: 'BMW',

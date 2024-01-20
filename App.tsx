@@ -2,19 +2,19 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import React from 'react';
 import CarItem from './src/components/CarItem';
 import {Cars} from './src/res/Data';
+import MainNavigation from './route/nav';
 
 const App = () => {
-  const renderCars = () => {
-    const carsComponents = Cars.map(car => {
-      return <CarItem brand={car.brand} year={car.year} km={car.km} />;
-    });
 
-    return carsComponents;
-  };
+  // return (
+  //   <View style={styles.container}>
+  //     <ScrollView>{renderCars()}</ScrollView>
+  //   </View>
+  // );
 
   return (
-    <View style={styles.container}>
-      <ScrollView>{renderCars()}</ScrollView>
+    <View style={styles.container} >
+      <MainNavigation/>
     </View>
   );
 };
