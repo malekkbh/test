@@ -7,7 +7,7 @@ import ScreenNames from '../../route/ScreenNames';
 const Screen1 = (props) => {
   const renderCars = () => {
     const carsComponents = Cars.map(car => {
-      return <CarItem brand={car.brand} year={car.year} km={car.km} />;
+      return <CarItem brand={car.brand} year={car.year} km={car.km} img={car.img} />;
     });
 
     return carsComponents;

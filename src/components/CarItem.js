@@ -1,5 +1,9 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import React, {useState} from 'react';
+import Images from '../assets/images/images';
+import {useNavigation} from '@react-navigation/native';
+import ScreenNames from '../../route/ScreenNames';
+
 /**
  * 1- component will amount
  *    ** componentWillUpdate
@@ -10,29 +14,40 @@ import React, {useState} from 'react';
  */
 
 const CarItem = props => {
-  const {brand, year, km} = props;
+  const {brand, year, km , hideImage} = props;
+  const navigation = useNavigation();
 
   // const[state , setState] = useState(init value)
   const [x, setX] = useState(0);
   // var x = 0;
 
   const onPress = () => {
-    setX(x+1)
+    setX(x + 1);
     console.log('x: ', x);
   };
 
+  const onCardPress = () => {
+
+    const car ={
+      brand: props.brand , 
+      year : props.year , 
+      km: props.km , 
+      img: props.img
+    }
+    navigation.navigate(ScreenNames.screen2 , /**params */ {car: car})
+  }
+
   return (
-    <View style={styles.container}>
-      <View style={styles.txtContainer}>
-        <Text style={styles.txt}>{`Brand: ` + props.brand}</Text>
-        <Text style={styles.txt}>{`Year: ${year}`}</Text>
-        <Text style={styles.txt}>{'KM: ' + km}</Text>
+    <TouchableOpacity onPress={onCardPress}>
+      <View style={styles.container}>
+        <View style={styles.txtContainer}>
+          <Text style={styles.txt}>{`Brand: ` + props.brand}</Text>
+          <Text style={styles.txt}>{`Year: ${year}`}</Text>
+          <Text style={styles.txt}>{'KM: ' + km}</Text>
+        </View>
+        { !hideImage && <Image style={styles.img} source={props.img} />}
       </View>
-      <TouchableOpacity style={styles.plusContainer} onPress={onPress}>
-        <Text style={styles.plus}>{'+'}</Text>
-        <Text style={styles.plus}>{x}</Text>
-      </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -59,5 +74,10 @@ const styles = StyleSheet.create({
   },
   txtContainer: {
     flex: 1,
+  },
+  img: {
+    width: 180,
+    height: 180,
+    resizeMode: 'contain',
   },
 });
