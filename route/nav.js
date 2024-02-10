@@ -14,7 +14,13 @@ const MainNavigation = () => {
       <Stack.Navigator>
         <Stack.Screen name={ScreenNames.Home} component={Screen1} />
         <Stack.Screen name={ScreenNames.screen2} component={Screen2} />
-        <Stack.Screen name={ScreenNames.screen3} component={Screen3} />
+        <Stack.Screen
+          name={ScreenNames.screen3}
+          component={Screen3}
+          options={{
+            title: 'cart',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

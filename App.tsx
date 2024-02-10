@@ -3,9 +3,9 @@ import React from 'react';
 import CarItem from './src/components/CarItem';
 import {Cars} from './src/res/Data';
 import MainNavigation from './route/nav';
+import TestProvider from './store/testProvider';
 
 const App = () => {
-
   // return (
   //   <View style={styles.container}>
   //     <ScrollView>{renderCars()}</ScrollView>
@@ -13,8 +13,10 @@ const App = () => {
   // );
 
   return (
-    <View style={styles.container} >
-      <MainNavigation/>
+    <View style={styles.container}>
+      <TestProvider>
+        <MainNavigation />
+      </TestProvider>
     </View>
   );
 };

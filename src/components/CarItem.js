@@ -14,26 +14,22 @@ import ScreenNames from '../../route/ScreenNames';
  */
 
 const CarItem = props => {
-  const {brand, year, km , hideImage} = props;
+  const {brand, year, km , hideImage , id} = props;
   const navigation = useNavigation();
 
   // const[state , setState] = useState(init value)
   const [x, setX] = useState(0);
   // var x = 0;
 
-  const onPress = () => {
-    setX(x + 1);
-    console.log('x: ', x);
-  };
-
   const onCardPress = () => {
 
-    const car ={
-      brand: props.brand , 
-      year : props.year , 
-      km: props.km , 
-      img: props.img
-    }
+    const car = {
+      brand: props.brand,
+      year: props.year,
+      km: props.km,
+      img: props.img,
+      id: id,
+    };
     navigation.navigate(ScreenNames.screen2 , /**params */ {car: car})
   }
 
