@@ -1,23 +1,46 @@
-import {StyleSheet, Text, View, ScrollView, Button} from 'react-native';
-import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Button,
+  ActivityIndicator,
+} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import {Cars} from '../res/Data';
 import CarItem from '../components/CarItem';
 import ScreenNames from '../../route/ScreenNames';
+import {getAllUsers} from '../res/api';
+import UserItem from '../components/UserItem';
 
 const Screen1 = props => {
-  const renderCars = () => {
-    const carsComponents = Cars.map(car => {
-      return (
-        <CarItem brand={car.brand} year={car.year} km={car.km} img={car.img} id={car.id} />
-      );
-    });
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
 
-    return carsComponents;
+  const renderCars = () => {
+    return users.map(user => <UserItem {...user} />);
   };
 
   const onPayPress = () => {
     props.navigation.navigate(ScreenNames.screen3);
   };
+
+  const getAllUsersFromApi = () => {
+    setLoading(true);
+    getAllUsers().then(res => {
+      console.log('res:', res);
+      setUsers(res.users);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    getAllUsersFromApi();
+  }, []);
+
+  if (loading) {
+    return <ActivityIndicator size="large" />;
+  }
 
   return (
     <View style={{flex: 1}}>
